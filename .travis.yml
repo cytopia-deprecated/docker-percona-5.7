@@ -112,7 +112,7 @@ script:
 
 
   - docker stop "$( docker ps | grep  "${MY_DOCKER_NAME}" | awk '{print $1}' )"
-  - docker rm "${MY_DOCKER_NAME}"
+  - docker rm "${MY_DOCKER_NAME}" || true
 
   ##
   ## 01.) [b](SILENT) Test plain docker
@@ -134,7 +134,7 @@ script:
   - mysql --user=root --password=${MY_MYSQL_PASS} --host=127.0.0.1 -e "SHOW VARIABLES WHERE Variable_name LIKE '%innodb%buffer%pool%size%';"
 
   - docker stop "$( docker ps | grep  "${MY_DOCKER_NAME}" | awk '{print $1}' )"
-  - docker rm "${MY_DOCKER_NAME}"
+  - docker rm "${MY_DOCKER_NAME}" || true
 
 
   ################################################################################
@@ -167,7 +167,7 @@ script:
   - tail -10 /tmp/mysql-log/mysql.log
 
   - docker stop "$( docker ps | grep  "${MY_DOCKER_NAME}" | awk '{print $1}' )"
-  - docker rm "${MY_DOCKER_NAME}"
+  - docker rm "${MY_DOCKER_NAME}" || true
 
   ##
   ## 02.) [b](SILENT) With logging
@@ -198,7 +198,7 @@ script:
   - tail -10 /tmp/mysql-log/mysql.log
 
   - docker stop "$( docker ps | grep  "${MY_DOCKER_NAME}" | awk '{print $1}' )"
-  - docker rm "${MY_DOCKER_NAME}"
+  - docker rm "${MY_DOCKER_NAME}" || true
 
 
   ################################################################################
@@ -228,7 +228,7 @@ script:
   - mysql --user=root --password=${MY_MYSQL_PASS} --host=127.0.0.1 -e "SHOW VARIABLES WHERE Variable_name LIKE '%innodb%buffer%pool%size%';" | grep '536870912'
 
   - docker stop "$( docker ps | grep  "${MY_DOCKER_NAME}" | awk '{print $1}' )"
-  - docker rm "${MY_DOCKER_NAME}"
+  - docker rm "${MY_DOCKER_NAME}" || true
   - rm -f /tmp/mysql-conf/buffer.cnf
 
   ##
@@ -257,7 +257,7 @@ script:
   - mysql --user=root --password=${MY_MYSQL_PASS} --host=127.0.0.1 -e "SHOW VARIABLES WHERE Variable_name LIKE '%innodb%buffer%pool%size%';" | grep '536870912'
 
   - docker stop "$( docker ps | grep  "${MY_DOCKER_NAME}" | awk '{print $1}' )"
-  - docker rm "${MY_DOCKER_NAME}"
+  - docker rm "${MY_DOCKER_NAME}" || true
   - rm -f /tmp/mysql-conf/buffer.cnf
 
 
@@ -286,7 +286,7 @@ script:
   - mysql --user=root --password=${MY_MYSQL_PASS} --host=127.0.0.1 -e "SHOW VARIABLES WHERE Variable_name LIKE '%socket%';" | grep '/usr/local/mysqld-sock/mysqld.sock'
 
   - docker stop "$( docker ps | grep  "${MY_DOCKER_NAME}" | awk '{print $1}' )"
-  - docker rm "${MY_DOCKER_NAME}"
+  - docker rm "${MY_DOCKER_NAME}" || true
 
   ##
   ## 04.) [b](SILENT) Change socket path
@@ -312,7 +312,7 @@ script:
   - mysql --user=root --password=${MY_MYSQL_PASS} --host=127.0.0.1 -e "SHOW VARIABLES WHERE Variable_name LIKE '%socket%';" | grep '/usr/local/mysqld-sock/mysqld.sock'
 
   - docker stop "$( docker ps | grep  "${MY_DOCKER_NAME}" | awk '{print $1}' )"
-  - docker rm "${MY_DOCKER_NAME}"
+  - docker rm "${MY_DOCKER_NAME}" || true
 
 
   ################################################################################
@@ -336,7 +336,7 @@ script:
   - mysql --user=root --password=${MY_MYSQL_PASS} --host=127.0.0.1 -e "SHOW DATABASES;"
 
   - docker stop "$( docker ps | grep  "${MY_DOCKER_NAME}" | awk '{print $1}' )"
-  - docker rm "${MY_DOCKER_NAME}"
+  - docker rm "${MY_DOCKER_NAME}" || true
   # SECOND RUN
   - docker run --rm
       -p 127.0.0.1:3306:3306
@@ -353,7 +353,7 @@ script:
   - mysql --user=root --password=${MY_MYSQL_PASS} --host=127.0.0.1 -e "SHOW DATABASES;" | grep 'mycustomdatabase'
 
   - docker stop "$( docker ps | grep  "${MY_DOCKER_NAME}" | awk '{print $1}' )"
-  - docker rm "${MY_DOCKER_NAME}"
+  - docker rm "${MY_DOCKER_NAME}" || true
 
   ##
   ## 05.) [b](SILENT) Mount database dir and re-use it
@@ -375,7 +375,7 @@ script:
   - mysql --user=root --password=${MY_MYSQL_PASS} --host=127.0.0.1 -e "SHOW DATABASES;"
 
   - docker stop "$( docker ps | grep  "${MY_DOCKER_NAME}" | awk '{print $1}' )"
-  - docker rm "${MY_DOCKER_NAME}"
+  - docker rm "${MY_DOCKER_NAME}" || true
   # SECOND RUN
   - docker run --rm
       -p 127.0.0.1:3306:3306
@@ -392,4 +392,4 @@ script:
   - mysql --user=root --password=${MY_MYSQL_PASS} --host=127.0.0.1 -e "SHOW DATABASES;" | grep 'mycustomdatabase'
 
   - docker stop "$( docker ps | grep  "${MY_DOCKER_NAME}" | awk '{print $1}' )"
-  - docker rm "${MY_DOCKER_NAME}"
+  - docker rm "${MY_DOCKER_NAME}" || true
