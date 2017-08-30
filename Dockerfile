@@ -13,7 +13,7 @@ LABEL \
 	image="percona-5.7" \
 	vendor="cytopia" \
 	license="MIT" \
-	build-date="2017-07-01"
+	build-date="2017-08-30"
 
 
 ###
