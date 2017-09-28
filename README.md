@@ -1,6 +1,6 @@
 # PerconaDB 5.7 Docker
 
-<small>**Latest build:** 2017-08-30</small>
+<small>**Latest build:** 2017-09-29</small>
 
 [![Build Status](https://travis-ci.org/cytopia/docker-percona-5.7.svg?branch=master)](https://travis-ci.org/cytopia/docker-percona-5.7) [![](https://images.microbadger.com/badges/version/cytopia/percona-5.7.svg)](https://microbadger.com/images/cytopia/percona-5.7 "percona-5.7") [![](https://images.microbadger.com/badges/image/cytopia/percona-5.7.svg)](https://microbadger.com/images/cytopia/percona-5.7 "percona-5.7") [![](https://images.microbadger.com/badges/license/cytopia/percona-5.7.svg)](https://microbadger.com/images/cytopia/percona-5.7 "percona-5.7")
 
@@ -124,4 +124,4 @@ Configuration files inside this docker are read in the following order:
 
 **[Version]**
 
-mysqld  Ver 5.7.18-16 for Linux on x86_64 (Percona Server (GPL), Release 16, Revision d7301f8)
+mysqld  Ver 5.7.19-17 for Linux on x86_64 (Percona Server (GPL), Release 17, Revision e19a6b7b73f)
